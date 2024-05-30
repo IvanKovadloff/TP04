@@ -1,0 +1,25 @@
+<p>@ViewBag.MensajeError</p>
+<form action='@Url.Action("GuardarPaquete","Home")'>
+<ol>
+@{
+
+    foreach(string destino in ViewBag.ListaDestinos)
+    {
+        <li>@destino</li>
+    }
+}
+</ol>
+    <input type = "number" name = "Destino">
+    <input type="submit">
+<ol>
+@{
+    foreach(string hotel in ViewBag.ListaHoteles)
+    {
+        <li><img src="/images/@hotel" width="200"></li>
+    }
+}
+</ol>
+    <input type = "number" name = "Hotel">
+    <input type="submit">
+
+</form>

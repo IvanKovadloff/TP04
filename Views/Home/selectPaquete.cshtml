@@ -5,12 +5,12 @@
 
     foreach(string destino in ViewBag.ListaDestinos)
     {
-        <li>@destino</li>
+        <li><img src="/images/@destino" width="200"></li>
     }
 }
 </ol>
-    <input type = "number" name = "Destino">
-    <input type="submit">
+    <input required type = "number" name = "Destino">
+    
 <ol>
 @{
     foreach(string hotel in ViewBag.ListaHoteles)
@@ -19,7 +19,25 @@
     }
 }
 </ol>
-    <input type = "number" name = "Hotel">
+    <input required type = "number" name = "Hotel">
+    
+<ol>
+@{
+    foreach(string ex in ViewBag.ListaExcursiones)
+    {
+    <li><img src="/images/@ex" width="200"></li>        
+}
+}
+</ol>
+    <input required type = "number" name = "Excursion">
+<ol>
+@{
+    foreach(string aereo in ViewBag.ListaAereos)
+    {
+        <li><img src="/images/@aereo" width="200"></li>   }
+}
+</ol>
+    <input required type = "number" name = "Aereo">
+    
     <input type="submit">
-
 </form>

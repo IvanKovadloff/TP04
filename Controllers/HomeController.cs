@@ -34,6 +34,8 @@ public class HomeController : Controller
     {
         ViewBag.ListaDestinos=ORTWorld.ListaDestinos;
         ViewBag.ListaHoteles= ORTWorld.ListaHoteles;
+        ViewBag.ListaExcursiones = ORTWorld.ListaExcursiones;
+        ViewBag.ListaAereos = ORTWorld.ListaAereos;
         return View();
     }
     
@@ -44,7 +46,8 @@ public class HomeController : Controller
             Paquete paquete = new Paquete( ORTWorld.ListaHoteles[Hotel], ORTWorld.ListaAereos[Aereo], ORTWorld.ListaExcursiones[Excursion]);
             ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino],paquete);
             ViewBag.Excursiones=ORTWorld.ListaExcursiones;
-            return View("Index");
+            //NO FUNCA
+            return View("SelectPaquete");
         }
         else
         {

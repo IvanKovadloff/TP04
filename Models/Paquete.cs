@@ -9,9 +9,9 @@ public class Paquete{
     //Constructor
     public Paquete (){ }
     public Paquete (string hotel, string aereo, string excursion){
-        hotel = Hotel;
-        aereo = Aereo;
-        excursion = Excursion;
+        Hotel = hotel;
+        Aereo = aereo;
+        Excursion = excursion;
         
     }
 }

@@ -1,43 +1,45 @@
-<p>@ViewBag.MensajeError</p>
-<form action='@Url.Action("GuardarPaquete","Home")'>
-<ol>
 @{
+    ViewData["Title"] = "Select Paquete";
+}
+<div class="container">
+    <h2 class="text-center">Selecciona tu Paquete</h2>
+    
+    <p>@ViewBag.MensajeError</p>
 
-    foreach(string destino in ViewBag.ListaDestinos)
-    {
-        <li><img src="/images/@destino" width="200"></li>
-    }
-}
-</ol>
-    <input required type = "number" name = "Destino">
-    
-<ol>
-@{
-    foreach(string hotel in ViewBag.ListaHoteles)
-    {
-        <li><img src="/images/@hotel" width="200"></li>
-    }
-}
-</ol>
-    <input required type = "number" name = "Hotel">
-    
-<ol>
-@{
-    foreach(string ex in ViewBag.ListaExcursiones)
-    {
-    <li><img src="/images/@ex" width="200"></li>        
-}
-}
-</ol>
-    <input required type = "number" name = "Excursion">
-<ol>
-@{
-    foreach(string aereo in ViewBag.ListaAereos)
-    {
-        <li><img src="/images/@aereo" width="200"></li>   }
-}
-</ol>
-    <input required type = "number" name = "Aereo">
-    
-    <input type="submit">
-</form>
+    <form action='@Url.Action("GuardarPaquete","Home")' class="form">
+        <h2>Destino</h2>
+        <ol class="destinos-list">
+            @foreach(string destino in ViewBag.ListaDestinos)
+            {
+                <li><img src="/images/@destino" alt="Destino Image"></li>
+            }
+        </ol>
+        <input required type="number"  max="10" min="1" name="Destino" placeholder="Selecciona un destino">
+        <h2>Hotel</h2>
+        <ol class="hoteles-list">
+            @foreach(string hotel in ViewBag.ListaHoteles)
+            {
+                <li><img src="/images/@hotel" alt="Hotel Image"></li>
+            }
+        </ol>
+        <input required type="number" max="10" min="1" name="Hotel" placeholder="Selecciona un hotel">
+        <h2>Excursiones</h2>
+        <ol class="excursiones-list">
+            @foreach(string ex in ViewBag.ListaExcursiones)
+            {
+                <li><img src="/images/@ex" alt="Excursion Image"></li>
+            }
+        </ol>
+        <input required type="number"  max="10" min="1" name="Excursion" placeholder="Selecciona una excursión">
+        <h2>Aerolineas</h2>
+        <ol class="aereos-list">
+            @foreach(string aereo in ViewBag.ListaAereos)
+            {
+                <li><img src="/images/@aereo" alt="Aereo Image"></li>
+            }
+        </ol>
+        <input required type="number"  max="10" min="1" name="Aereo" placeholder="Selecciona un vuelo">
+
+        <button type="submit" class="submit-button">Guardar Paquete</button>
+    </form>
+</div>

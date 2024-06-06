@@ -13,11 +13,11 @@ public static class ORTWorld{
     public static List< string > ListaExcursiones {get; private set;}= new List<string>{"1paisaje.jpg", "2paisaje.jpg","3paisaje.jpg", 
     "4paisaje.jpg", "5paisaje.jpg","6paisaje.jpg", "7paisaje.jpg", "8paisaje.jpg", 
     "9paisaje.jpg", "10paisaje.jpg"};
-    public static Dictionary<string, Paquete> Paquetes {get; private set;}
+    public static Dictionary<string, Paquete> Paquetes {get; private set;} = new Dictionary<string, Paquete>();
     //Metodos
     public static bool IngresarPaquete(string destinoSeleccionado, Paquete paquete)
     {
-        bool seRepite= ListaDestinos.Contains(destinoSeleccionado);
+        bool seRepite= Paquetes.ContainsKey(destinoSeleccionado);
         if(!seRepite)
         {
             Paquetes.Add(destinoSeleccionado,paquete);

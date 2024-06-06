@@ -1,14 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<h1>Bienvenidos a nuestra página!</h1>
+<div class="container">
+    <h1 class="text-center">Bienvenidos a nuestra página!</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="text-center">
+        <a href='@Url.Action("SelectPaquete","Home")' title="#SelectPaquete.cshtml" class="button">Select Paquete</a>
+    </div>
+
+ @foreach(Paquete paquete in ViewBag.Paquetes.Values)
+ {
+    <h1>Este es tu paquete</h1>
+        <div class="image-container">
+            <img src="/images/@paquete.Hotel" alt="Hotel Image">
+            <img src="/images/@paquete.Aereo" alt="Aereo Image">
+            <img src="/images/@paquete.Excursion" alt="Excursion Image">
+        </div>
+    
+ }
 </div>
-
-<a href='@Url.Action("SelectPaquete","Home")' title="#selectPaquete.cshtml">Select Paquete</a>
-
- 
-

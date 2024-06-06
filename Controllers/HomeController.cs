@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.MiPaquete= ORTWorld.Paquetes;
+        ViewBag.Paquetes= ORTWorld.Paquetes;
         return View();
     }
 
@@ -41,19 +41,15 @@ public class HomeController : Controller
     
     public IActionResult GuardarPaquete (int Destino, int Hotel, int Aereo, int Excursion)
     {
-        if(Destino != null && Hotel != null && Aereo != null && Excursion != null)
-        {
-            Paquete paquete = new Paquete( ORTWorld.ListaHoteles[Hotel], ORTWorld.ListaAereos[Aereo], ORTWorld.ListaExcursiones[Excursion]);
-            ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino],paquete);
-            ViewBag.Excursiones=ORTWorld.ListaExcursiones;
-            //NO FUNCA
-            return View("SelectPaquete");
-        }
-        else
-        {
-            ViewBag.MensajeError = "Los datos cargados son incorrectos";
-            return View("SelectPaquete");
-        }
-        
+        string hotelElegido = ORTWorld.ListaHoteles[Hotel-1];
+        string aereoElegido = ORTWorld.ListaAereos[Aereo-1];
+        string excursionElegido = ORTWorld.ListaExcursiones[Excursion-1];
+
+            Paquete paquete = new Paquete(hotelElegido,aereoElegido,excursionElegido);
+            
+            ORTWorld.IngresarPaquete(ORTWorld.ListaDestinos[Destino-1],paquete);
+            return RedirectToAction("Index");
+            
+
     }
 }
